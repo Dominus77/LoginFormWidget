@@ -3,11 +3,11 @@
 Виджет Форм Аутентификации и Регистрации в модальном окне.
 
 ### Подключение
-1.Содержимое закинуть в папку widgets, в корне проекта
+1. Содержимое закинуть в папку widgets, в корне проекта
 ```
 app\widgets
 ```
-2.Добавить в SiteController 2 метода для Ajax проверки Формы Login и Ajax проверки Формы Signup
+2. Добавить в SiteController 2 метода для Ajax проверки Формы Login и Ajax проверки Формы Signup
 ```
 <?php
 
@@ -25,28 +25,28 @@ use yii\web\NotFoundHttpException;
  */
 class SiteController extends Controller
 {
-	//...
-
-	/**
-	 * @return array|\yii\web\Response
-	 * @throws NotFoundHttpException
-	 */
-	public function actionAjaxLogin()
-	{
-	    if (Yii::$app->request->isAjax) {
-	        $model = new LoginForm();
-	        if ($model->load(Yii::$app->request->post())) {
-	            if ($model->login()) {
-	                return $this->goBack();
-	            } else {
-	                Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
-	                return \yii\widgets\ActiveForm::validate($model);
-	            }
-	        }
-	    }
-	    throw new NotFoundHttpException(Yii::t('app', 'The requested page does not exist.'));
-	}
-
+    //...
+    
+    /**
+     * @return array|\yii\web\Response
+     * @throws NotFoundHttpException
+     */
+    public function actionAjaxLogin()
+    {
+        if (Yii::$app->request->isAjax) {
+            $model = new LoginForm();
+            if ($model->load(Yii::$app->request->post())) {
+                if ($model->login()) {
+                    return $this->goBack();
+                } else {
+                    Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+                    return \yii\widgets\ActiveForm::validate($model);
+                }
+            }
+        }
+        throw new NotFoundHttpException(Yii::t('app', 'The requested page does not exist.'));
+    }
+    
     /**
      * @return array|\yii\web\Response
      * @throws NotFoundHttpException
@@ -70,7 +70,7 @@ class SiteController extends Controller
     //...
 }
 ```
-3.Заменить ссылку Login в главном шаблоне
+3. Заменить ссылку Login в главном шаблоне
 ```
 $menuItems[] = ['label' => 'Login','url' => ['/site/login']];
 ```
@@ -84,7 +84,7 @@ $menuItems[] = ['label' => Yii::t('app', 'Login'),'url' => '#','options' => [
             ]
         ];
 ```
-4.Подключить виджет в главном шаблоне сразу после  $this->beginBody()
+4. Подключить виджет в главном шаблоне сразу после  $this->beginBody()
 ```
 //...
 <?php $this->beginBody() ?>
