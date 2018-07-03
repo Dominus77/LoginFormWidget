@@ -16,7 +16,6 @@ use yii\bootstrap\ActiveForm;
     'enableAjaxValidation' => true,
     'action' => ['/site/ajax-signup']
 ]); ?>
-
 <?= $form->field($model, 'username')->textInput([
     'placeholder' => true
 ]) ?>
