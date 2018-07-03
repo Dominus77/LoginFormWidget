@@ -12,7 +12,7 @@ app\widgets
 public function actionAjaxLogin()
 {
     if (Yii::$app->request->isAjax) {
-        $model = new app\models\LoginForm();
+        $model = new \app\models\LoginForm();
         if ($model->load(Yii::$app->request->post())) {
             if ($model->login()) {
                 return $this->goBack();
@@ -28,7 +28,7 @@ public function actionAjaxLogin()
 public function actionAjaxSignup()
 {
     if (Yii::$app->request->isAjax) {
-        $model = new app\models\SignupForm();
+        $model = new \app\models\SignupForm();
         if ($model->load(Yii::$app->request->post())) {
             if ($model->signup()) {
                 return $this->goBack();
