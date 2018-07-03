@@ -70,7 +70,7 @@ class SiteController extends Controller
     //...
 }
 ```
-3. Заменить ссылку Login в главном шаблоне
+3. Заменить ссылку Login в меню главного шаблона
 ```
 $menuItems[] = ['label' => 'Login','url' => ['/site/login']];
 ```
