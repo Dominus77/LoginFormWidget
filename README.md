@@ -7,7 +7,7 @@
 ```
 app\widgets
 ```
-2. Добавить в SiteController 2 метода для Ajax проверки Формы Login и Ajax проверки Формы Signup
+2. Добавить в SiteController два метода для ajax проверки форм
 ```
 <?php
 
@@ -84,7 +84,7 @@ $menuItems[] = ['label' => Yii::t('app', 'Login'),'url' => '#','options' => [
             ]
         ];
 ```
-4. Подключить виджет в главном шаблоне сразу после  $this->beginBody()
+4. Подключить виджет в главном шаблоне
 ```
 //...
 <?php $this->beginBody() ?>
