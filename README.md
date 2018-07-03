@@ -7,7 +7,7 @@
 ```
 app\widgets
 ```
-2. Добавить в SiteController два метода для ajax проверки форм
+2. Добавить в контроллер два метода для ajax проверки форм
 ```
 public function actionAjaxLogin()
 {
