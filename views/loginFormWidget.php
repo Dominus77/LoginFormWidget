@@ -16,6 +16,11 @@ $script = "
         $('#login-modal').modal('hide'); // Скрываем аутентификацию
         $('#signup-modal').modal('show'); // Открываем регистрацию
     });
+    $('#signnup-back-link').click(function(e) {
+        e.preventDefault();        
+        $('#signup-modal').modal('hide'); // Скрываем регистрацию
+        $('#login-modal').modal('show'); // Открываем аутентификацию
+    });
 ";
 $this->registerJs($script);
 ?>

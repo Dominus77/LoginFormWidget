@@ -28,9 +28,9 @@ use yii\bootstrap\ActiveForm;
     <hr>
     <div class="form-group">
         <div class="text-right">
-            <?= Html::button(Yii::t('app', 'Cancel'), [
-                'class' => 'btn btn-default',
-                'data-dismiss' => 'modal'
+            <?= Html::a(Yii::t('app', 'Cancel'), ['/#'], [
+                'id' => 'signnup-back-link',
+                'class' => 'btn btn-default'
             ]) ?>
             <?= Html::submitButton(Yii::t('app', 'Sign Up'), [
                 'class' => 'btn btn-primary',
