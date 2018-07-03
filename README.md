@@ -2,73 +2,44 @@
 
 Виджет форм аутентификации и регистрации в модальном окне.
 
-### Подключение
+### Использование
 1. Содержимое закинуть в папку widgets, в корне проекта
 ```
 app\widgets
 ```
 2. Добавить в SiteController два метода для ajax проверки форм
 ```
-<?php
-
-namespace app\controllers;
-
-use Yii;
-use yii\web\Controller;
-use app\models\LoginForm;
-use app\models\SignupForm;
-use yii\web\NotFoundHttpException;
-
-/**
- * Class SiteController
- * @package app\controllers
- */
-class SiteController extends Controller
+public function actionAjaxLogin()
 {
-    //...
-    
-    /**
-     * @return array|\yii\web\Response
-     * @throws NotFoundHttpException
-     */
-    public function actionAjaxLogin()
-    {
-        if (Yii::$app->request->isAjax) {
-            $model = new LoginForm();
-            if ($model->load(Yii::$app->request->post())) {
-                if ($model->login()) {
-                    return $this->goBack();
-                } else {
-                    Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
-                    return \yii\widgets\ActiveForm::validate($model);
-                }
+    if (Yii::$app->request->isAjax) {
+        $model = new app\models\LoginForm();
+        if ($model->load(Yii::$app->request->post())) {
+            if ($model->login()) {
+                return $this->goBack();
+            } else {
+                Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+                return \yii\widgets\ActiveForm::validate($model);
             }
         }
-        throw new NotFoundHttpException(Yii::t('app', 'The requested page does not exist.'));
     }
-    
-    /**
-     * @return array|\yii\web\Response
-     * @throws NotFoundHttpException
-     * @throws \yii\base\Exception
-     */
-    public function actionAjaxSignup()
-    {
-        if (Yii::$app->request->isAjax) {
-            $model = new SignupForm();
-            if ($model->load(Yii::$app->request->post())) {
-                if ($model->signup()) {
-                    return $this->goBack();
-                } else {
-                    Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
-                    return \yii\widgets\ActiveForm::validate($model);
-                }
-            }
-        }
-        throw new NotFoundHttpException(Yii::t('app', 'The requested page does not exist.'));
-    }
-    //...
+    throw new \yii\web\NotFoundHttpException(Yii::t('app', 'The requested page does not exist.'));
 }
+
+public function actionAjaxSignup()
+{
+    if (Yii::$app->request->isAjax) {
+        $model = new app\models\SignupForm();
+        if ($model->load(Yii::$app->request->post())) {
+            if ($model->signup()) {
+                return $this->goBack();
+            } else {
+                Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+                return \yii\widgets\ActiveForm::validate($model);
+            }
+        }
+    }
+    throw new \yii\web\NotFoundHttpException(Yii::t('app', 'The requested page does not exist.'));
+}    
 ```
 3. Заменить ссылку Login в меню главного шаблона
 ```

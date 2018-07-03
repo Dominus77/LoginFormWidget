@@ -30,10 +30,6 @@ use yii\bootstrap\ActiveForm;
     <hr>
     <div class="form-group">
         <div class="text-right">
-            <?= Html::button(Yii::t('app', 'Cancel'), [
-                'class' => 'btn btn-default',
-                'data-dismiss' => 'modal'
-            ]) ?>
             <?= Html::submitButton(Yii::t('app', 'Login'), [
                 'class' => 'btn btn-primary',
                 'name' => 'login-button'
