@@ -19,9 +19,6 @@ use yii\bootstrap\ActiveForm;
 <?= $form->field($model, 'username')->textInput([
     'placeholder' => true
 ]) ?>
-<?= $form->field($model, 'email')->textInput([
-    'placeholder' => true
-]) ?>
 <?= $form->field($model, 'password')->passwordInput([
     'placeholder' => true
 ]) ?>

@@ -16,7 +16,7 @@ use yii\bootstrap\ActiveForm;
     'enableAjaxValidation' => true,
     'action' => ['/site/ajax-login']
 ]); ?>
-<?= $form->field($model, 'email')->textInput([
+<?= $form->field($model, 'username')->textInput([
     'placeholder' => true
 ]); ?>
 <?= $form->field($model, 'password')->passwordInput([
@@ -24,9 +24,6 @@ use yii\bootstrap\ActiveForm;
 ]); ?>
 <?= $form->field($model, 'rememberMe')->checkbox(); ?>
 
-<?= Yii::t('app', 'If you forgot your password you can {:Link}', [
-    ':Link' => Html::a(Yii::t('app', 'reset it'), ['/site/request-password-reset'])
-]) ?>
     <hr>
     <div class="form-group">
         <div class="text-right">

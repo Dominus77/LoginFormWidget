@@ -63,4 +63,15 @@ $menuItems[] = ['label' => Yii::t('app', 'Login'),'url' => '#','options' => [
 <?= app\widgets\LoginFormWidget::widget() ?>
 //...
 ```
+Обратить внимание на атрибуты форм, поставить нужные, в текущем варианте `username` и 
+`password` для формы авторизации, `username`, и `password`, для регистрации.
+ 
+Ссылки по умолчанию ведут на контроллер SiteController.
+
+Добавить правила роутинга, если нужно, для действий `ajax-login` и `ajax-signup` в текущем варианте они выглядят так:
+```
+'ajax-login' => 'site/ajax-login',
+'ajax-signup' => 'site/ajax-signup',
+```
+
 На этом подключение завершено, можно пробовать.
